@@ -1,5 +1,5 @@
 {
-  "name": "vue-typescrip",
+  "name": "vue-typescript",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -39,9 +39,9 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/vue3-essential",
       "eslint:recommended",
-      "@vue/typescript/recommended"
+      "@vue/typescript/recommended",
+      "plugin:vue/vue3-recommended"
     ],
     "parserOptions": {
       "ecmaVersion": 2020
