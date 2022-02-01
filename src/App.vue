@@ -1,8 +1,8 @@
 <template>
   <Layout>
     <div id="nav">
-      <router-link to="/"> Home </router-link> |
-      <router-link to="/about"> About </router-link>
+      <router-link to="/"> {{ $t("title.register") }} </router-link> |
+      <router-link to="/about"> {{ $t("title.about") }} </router-link>
     </div>
     <router-view />
   </Layout>

@@ -1,0 +1,9 @@
+{
+  "title": {
+    "register": "Register",
+    "about": "About"
+  },
+  "error": {
+    "firstName": "Invalid first name"
+  }
+}

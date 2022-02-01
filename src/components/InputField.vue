@@ -1,9 +1,10 @@
 <template>
   <input
-    type="text"
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
+    :type="type"
+    :placeholder="placeholder"
+    @input="$emit('changeValue', $event.target.value)"
   />
+  <div v-if="validInput">Name field has an error.{{ errorMessage }}</div>
 </template>
 
 <script lang="ts">
@@ -11,9 +12,26 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "InputField",
+  emits: ["changeValue"],
   props: {
-    modelValue: String,
-    placeholder: String,
+    placeholder: {
+      required: true,
+      type: String,
+    },
+    type: {
+      required: true,
+      type: String,
+    },
+    validInput: {
+      required: true,
+      type: Boolean,
+    },
+    errorMessage: {
+      type: String,
+    },
+  },
+  script() {
+    console.log(this.validInput);
   },
 });
 </script>

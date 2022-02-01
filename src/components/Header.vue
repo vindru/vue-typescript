@@ -1,6 +1,6 @@
 <template>
   <Container>
-    <h1>Register</h1>
+    <img src="../assets/logo.png" class="logo" />
   </Container>
 </template>
 
@@ -17,5 +17,8 @@ export default {
 h1 {
   font-size: 24px;
   margin: 40px 0;
+}
+.logo {
+  height: 150px;
 }
 </style>
