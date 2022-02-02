@@ -3,7 +3,14 @@
     "register": "Register",
     "about": "About"
   },
-  "error": {
-    "firstName": "Invalid first name"
+  "validationError": {
+    "firstName": "Invalid first name",
+    "lastName": "Invalid last name",
+    "email": "Invalid email",
+    "password": "Invalid password",
+    "confirmPassword": "Invalid Password"
+  },
+  "button":{
+    "register":"Register"
   }
 }

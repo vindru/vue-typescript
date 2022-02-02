@@ -4,98 +4,128 @@
       <InputField
         type="text"
         placeholder="First Name"
-        @changeValue="updateFirstName"
-        :validInput="v$.firstName.$invalid"
-        :errorMessage="`${$t('error.firstName')}`"
+        name="firstName"
+        :invalid-input="submitted && v$.user.firstName.$invalid"
+        :error-message="`${$t('validationError.firstName')}`"
+        @changeValue="updateUser"
       />
     </div>
     <div class="input">
       <InputField
         type="text"
         placeholder="Last Name"
-        @changeValue="updateLastName"
-        :validInput="v$.lastName.$invalid"
+        name="lastName"
+        :invalid-input="submitted && v$.user.lastName.$invalid"
+        :error-message="`${$t('validationError.lastName')}`"
+        @changeValue="updateUser"
       />
     </div>
     <div class="input">
       <InputField
         type="email"
         placeholder="Email"
-        @changeValue="updateEmail"
-        :validInput="v$.email.$invalid"
+        name="email"
+        :invalid-input="submitted && v$.user.email.$invalid"
+        :error-message="`${$t('validationError.email')}`"
+        @changeValue="updateUser"
       />
     </div>
     <div class="input">
       <InputField
         type="password"
         placeholder="Password"
-        @changeValue="updatePassword"
-        :validInput="v$.password.$invalid"
+        name="password"
+        :invalid-input="submitted && v$.user.password.$invalid"
+        :error-message="`${$t('validationError.password')}`"
+        @changeValue="updateUser"
       />
     </div>
     <div class="input">
       <InputField
         type="password"
         placeholder="Confirm Password"
-        @changeValue="updateConfirmPassword"
-        :validInput="v$.confirmPassword.$invalid"
+        name="confirmPassword"
+        :invalid-input="submitted && v$.user.confirmPassword.$invalid"
+        :error-message="`${$t('validationError.confirmPassword')}`"
+        @changeValue="updateUser"
       />
     </div>
+    <Button :message="`${$t('button.register')}`" @onClick="registerUser" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import InputField from "@/components/InputField.vue";
+import Button from "@/components/Button.vue";
 import useVuelidate from "@vuelidate/core";
-import { required, email, helpers } from "@vuelidate/validators";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
+import { User } from "@/types/interface";
 
 export default defineComponent({
   name: "Home",
   components: {
     InputField,
+    Button,
   },
   setup() {
-    const firstName = ref<string>("");
-    const lastName = ref<string>("");
-    const password = ref<string>("");
-    const confirmPassword = ref<string>("");
-    const email = ref<string>("");
+    const user = ref<User>({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+    const submitted = ref<boolean>(false);
     return {
-      firstName,
-      lastName,
-      password,
-      confirmPassword,
-      email,
+      user,
       v$: useVuelidate(),
+      submitted,
     };
   },
   methods: {
-    updateFirstName(firstName: string) {
-      this.firstName = firstName;
+    updateUser(value: string, type: string) {
+      switch (type) {
+        case "firstName":
+          this.user.firstName = value;
+          break;
+        case "lastName":
+          this.user.lastName = value;
+          break;
+        case "email":
+          this.user.email = value;
+          break;
+        case "password":
+          this.user.password = value;
+          break;
+        case "confirmPassword":
+          this.user.confirmPassword = value;
+          break;
+      }
     },
-    updateLastName(lastName: string) {
-      this.lastName = lastName;
-    },
-    updateEmail(email: string) {
-      this.email = email;
-    },
-    updatePassword(password: string) {
-      this.password = password;
-    },
-    updateConfirmPassword(confirmPassword: string) {
-      this.confirmPassword = confirmPassword;
+    registerUser() {
+      this.submitted = true;
+      this.v$.$touch();
+      if (this.v$.$invalid) {
+        return false;
+      }
+      alert("Done!");
+      return true;
     },
   },
   validations() {
     return {
-      firstName: {
-        required: helpers.withMessage("This field cannot be empty", required),
+      user: {
+        firstName: { required },
+        lastName: { required },
+        email: { required, email },
+        password: { required, minLength: minLength(6) },
+        confirmPassword: {
+          required,
+          minLength: minLength(6),
+          sameAsPassword: sameAs(this.user.password),
+        },
       },
-      lastName: { required },
-      email: { required, email },
-      password: { required },
-      confirmPassword: { required },
     };
   },
 });
@@ -103,7 +133,6 @@ export default defineComponent({
 <style scoped>
 .input {
   margin-bottom: 20px;
-  width: 200px;
 }
 .home {
   display: flex;
