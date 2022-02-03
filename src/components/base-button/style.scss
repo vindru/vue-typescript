@@ -14,3 +14,7 @@
 .btn:hover {
   opacity: 0.8;
 }
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
-import Home from "@/views/home.vue";
+import Home from "@/views/home/index.vue";
 import InputField from "@/components/base-input-field/index.vue";
-import Button from "@/components/base-button/base-button/index.vue";
+import Button from "@/components/base-button/index.vue";
 import useVuelidate from "@vuelidate/core";
 import { User } from "@/types/interface";
 import { ref } from "vue";
