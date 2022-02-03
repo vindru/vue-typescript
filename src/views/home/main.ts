@@ -4,6 +4,7 @@ import BaseButton from "@/components/base-button/index.vue";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import { User } from "@/types/interface";
+import { ScreenState } from "@/types/enums";
 
 export default defineComponent({
   name: "Home",
@@ -19,7 +20,7 @@ export default defineComponent({
       password: "",
       confirmPassword: "",
     });
-    const submitted = ref<boolean>(false);
+    const submitted = ref<ScreenState>(ScreenState.DEFAULT);
     return {
       user,
       v$: useVuelidate(),
@@ -47,12 +48,13 @@ export default defineComponent({
       }
     },
     registerUser() {
-      this.submitted = true;
+      this.submitted = ScreenState.LOADING;
       this.v$.$touch();
       if (this.v$.$invalid) {
         return false;
       }
       alert("Done!");
+      this.submitted = ScreenState.LOADED;
       return true;
     },
   },

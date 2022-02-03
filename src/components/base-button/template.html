@@ -1,3 +1,4 @@
-<button class="btn" @click="$emit('onClick')">
-  <slot />
+<button :disabled="isDisabled" class="btn" @click="$emit('onClick')">
+  <TheLoader v-if="loader" />
+  <span v-if="!loader"><slot /></span>
 </button>
