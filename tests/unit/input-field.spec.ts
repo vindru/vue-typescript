@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import InputField from "@/components/InputField.vue";
+import InputField from "@/components/base-input-field/index.vue";
 
 describe("InputField.vue", () => {
   const i18n = {
