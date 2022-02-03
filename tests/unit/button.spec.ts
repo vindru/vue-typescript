@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import Button from "@/components/Button.vue";
+import Button from "@/components/base-button/index.vue";
 
 describe("Button.vue", () => {
   const i18n = {
