@@ -7,6 +7,10 @@ export default defineComponent({
   emits: ["onClick"],
   components: { TheLoader },
   props: {
+    testid:{
+      type: String,
+      required: true
+    },
     loader: {
       type: Boolean,
       default: true,
