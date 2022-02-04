@@ -11,11 +11,11 @@
 //
 // -- This is a parent command --
 Cypress.Commands.add("register", (firstName, lastName, email, password) => {
-    cy.get(':nth-child(1) > input').type(firstName)
-    cy.get(':nth-child(2) > input').type(lastName)
-    cy.get(':nth-child(3) > input').type(email)
-    cy.get(':nth-child(4) > input').type(password)
-    cy.get(':nth-child(5) > input').type(password)
+    cy.get('[testid="firstName"]').type(firstName)
+    cy.get('[testid="lastName"]').type(lastName)
+    cy.get('[testid="email"]').type(email)
+    cy.get('[testid="password"]').type(password)
+    cy.get('[testid="confirmPassword"]').type(password)
 })
 //
 //
