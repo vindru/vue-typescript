@@ -1,7 +1,7 @@
 export enum ScreenState {
-  DEFAULT,
-  ERROR,
-  LOADED,
-  LOADED_NO_DATA,
-  LOADING,
+  DEFAULT = "DEFAULT",
+  ERROR = "ERROR",
+  LOADED = "LOADED",
+  LOADED_NO_DATA = "LOADED_NO_DATA",
+  LOADING = "LOADING",
 }
