@@ -1,0 +1,19 @@
+{
+  "title": {
+    "register": "Register",
+    "about": "About"
+  },
+  "validationError": {
+    "firstName": "Invalid first name",
+    "lastName": "Invalid last name",
+    "email": "Invalid email",
+    "password": "Invalid password",
+    "confirmPassword": "Invalid Password"
+  },
+  "button":{
+    "register":"Register"
+  },
+  "routes":{
+    
+  }
+}

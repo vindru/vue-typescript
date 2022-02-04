@@ -1,10 +1,32 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
-</template>
+  <Layout>
+    <div id="nav">
+      <router-link :to="`${Routes.HOME}`">
+        {{ $t("title.register") }}
+      </router-link>
+      |
+      <router-link :to="`${Routes.ABOUT}`">
+        {{ $t("title.about") }}
+      </router-link>
+    </div>
+    <router-view />
+  </Layout>
+</template>  
+
+
+<script lang="ts">
+import Layout from "@/components/the-layout/index.vue";
+import { Routes } from "@/router/routes";
+
+export default {
+  components: {
+    Layout,
+  },
+  data() {
+    return { Routes };
+  },
+};
+</script>
 
 <style>
 #app {
