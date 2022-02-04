@@ -1,0 +1,53 @@
+<div class="home">
+  <div class="input">
+    <BaseInputField
+      type="text"
+      placeholder="First Name"
+      name="firstName"
+      :invalid-input="state && v$.user.firstName.$invalid"
+      :error-message="`${$t('validationError.firstName')}`"
+      @changeValue="updateUser"
+    />
+  </div>
+  <div class="input">
+    <BaseInputField
+      type="text"
+      placeholder="Last Name"
+      name="lastName"
+      :invalid-input="state && v$.user.lastName.$invalid"
+      :error-message="`${$t('validationError.lastName')}`"
+      @changeValue="updateUser"
+    />
+  </div>
+  <div class="input">
+    <BaseInputField
+      type="email"
+      placeholder="Email"
+      name="email"
+      :invalid-input="state && v$.user.email.$invalid"
+      :error-message="`${$t('validationError.email')}`"
+      @changeValue="updateUser"
+    />
+  </div>
+  <div class="input">
+    <BaseInputField
+      type="password"
+      placeholder="Password"
+      name="password"
+      :invalid-input="state && v$.user.password.$invalid"
+      :error-message="`${$t('validationError.password')}`"
+      @changeValue="updateUser"
+    />
+  </div>
+  <div class="input">
+    <BaseInputField
+      type="password"
+      placeholder="Confirm Password"
+      name="confirmPassword"
+      :invalid-input="state && v$.user.confirmPassword.$invalid"
+      :error-message="`${$t('validationError.confirmPassword')}`"
+      @changeValue="updateUser"
+    />
+  </div>
+  <BaseButton @onClick="registerUser"> {{$t('button.register')}} </BaseButton>
+</div>
