@@ -28,11 +28,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -51,11 +51,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -74,11 +74,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -97,11 +97,11 @@ describe("Home.vue", () => {
           password: "asdas",
           confirmPassword: "asdas",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -120,11 +120,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasf",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -143,11 +143,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -166,11 +166,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -189,18 +189,18 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
     });
 
     await wrapper.findComponent(Button).vm.$emit("onClick");
-    expect(wrapper.vm.submitted).toBe(true);
+    expect(wrapper.vm.state).toBe(true);
   });
 
   it("should update first name on event from firstName InputField", async () => {
@@ -213,11 +213,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -239,11 +239,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -265,11 +265,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -291,11 +291,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -317,11 +317,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<boolean>(false);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,

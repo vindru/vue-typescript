@@ -1,10 +1,10 @@
-<div class="inputField">
+<div class="input-field">
   <input
-    class="inputbox"
+    class="input-box"
     :type="type"
     :placeholder="placeholder"
     :name="name"
     @input="$emit('changeValue', $event.target.value, name)"
   />
-  <span class="errorMessage" v-if="invalidInput">{{ errorMessage }}</span>
+  <span class="error-message" v-if="invalidInput">{{ errorMessage }}</span>
 </div>

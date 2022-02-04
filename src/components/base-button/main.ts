@@ -9,7 +9,7 @@ export default defineComponent({
   props: {
     loader: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     isDisabled: {
       type: Boolean,
