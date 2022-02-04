@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import Home from "@/views/home/index.vue";
 import About from "@/views/about/index.vue";
-import App from "@/App.vue";
+import App from "@/app.vue";
 import { createRouter, createMemoryHistory } from "vue-router";
 import { routes } from "../../src/router";
 

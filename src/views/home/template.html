@@ -5,7 +5,7 @@
       type="text"
       placeholder="First Name"
       name="firstName"
-      :invalid-input="submitted && v$.user.firstName.$invalid"
+      :invalid-input="state && v$.user.firstName.$invalid"
       :error-message="`${$t('validationError.firstName')}`"
       @changeValue="updateUser"
     />
@@ -16,7 +16,7 @@
       type="text"
       placeholder="Last Name"
       name="lastName"
-      :invalid-input="submitted && v$.user.lastName.$invalid"
+      :invalid-input="state && v$.user.lastName.$invalid"
       :error-message="`${$t('validationError.lastName')}`"
       @changeValue="updateUser"
     />
@@ -27,7 +27,7 @@
       type="email"
       placeholder="Email"
       name="email"
-      :invalid-input="submitted && v$.user.email.$invalid"
+      :invalid-input="state && v$.user.email.$invalid"
       :error-message="`${$t('validationError.email')}`"
       @changeValue="updateUser"
     />
@@ -38,7 +38,7 @@
       type="password"
       placeholder="Password"
       name="password"
-      :invalid-input="submitted && v$.user.password.$invalid"
+      :invalid-input="state && v$.user.password.$invalid"
       :error-message="`${$t('validationError.password')}`"
       @changeValue="updateUser"
     />
@@ -49,7 +49,7 @@
       type="password"
       placeholder="Confirm Password"
       name="confirmPassword"
-      :invalid-input="submitted && v$.user.confirmPassword.$invalid"
+      :invalid-input="state && v$.user.confirmPassword.$invalid"
       :error-message="`${$t('validationError.confirmPassword')}`"
       @changeValue="updateUser"
     />

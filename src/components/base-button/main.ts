@@ -13,7 +13,7 @@ export default defineComponent({
     },
     loader: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     isDisabled: {
       type: Boolean,

@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import App from "./App.vue";
+import App from "./app.vue";
 import router from "./router";
 import { messages, defaultLocale } from "@/i18n";
 import { createI18n } from "vue-i18n";

@@ -1,10 +1,11 @@
 import { shallowMount } from "@vue/test-utils";
 import Home from "@/views/home/index.vue";
 import InputField from "@/components/base-input-field/index.vue";
-import Button from "@/components/base-button/index.vue";
+import BaseButton from "@/components/base-button/index.vue";
 import useVuelidate from "@vuelidate/core";
 import { User } from "@/types/interface";
 import { ref } from "vue";
+import { ScreenState } from "@/types";
 
 describe("Home.vue", () => {
   const i18n = {
@@ -28,11 +29,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -51,11 +52,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -74,16 +75,15 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
     });
-
     expect(wrapper.vm.registerUser()).toBe(false);
   });
 
@@ -97,11 +97,11 @@ describe("Home.vue", () => {
           password: "asdas",
           confirmPassword: "asdas",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -120,11 +120,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasf",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -143,11 +143,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -166,11 +166,11 @@ describe("Home.vue", () => {
           password: "asdasd",
           confirmPassword: "asdasd",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -189,18 +189,18 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
     });
 
-    await wrapper.findComponent(Button).vm.$emit("onClick");
-    expect(wrapper.vm.submitted).toBe(true);
+    await wrapper.findComponent(BaseButton).vm.$emit("onClick");
+    expect(wrapper.vm.state).toBe(ScreenState.LOADING);
   });
 
   it("should update first name on event from firstName InputField", async () => {
@@ -213,11 +213,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -239,11 +239,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -265,11 +265,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -291,11 +291,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,
@@ -317,11 +317,11 @@ describe("Home.vue", () => {
           password: "",
           confirmPassword: "",
         });
-        const submitted = ref<boolean>(false);
+        const state = ref<ScreenState>(ScreenState.DEFAULT);
         return {
           user,
           v$: useVuelidate(),
-          submitted,
+          state,
         };
       },
       global: i18n,

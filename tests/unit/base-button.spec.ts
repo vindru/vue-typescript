@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
-import Button from "@/components/base-button/index.vue";
+import BaseButton from "@/components/base-button/index.vue";
+import TheLoader from "@/components/base-button/index.vue";
 
 describe("Button.vue", () => {
   const i18n = {
@@ -8,20 +9,11 @@ describe("Button.vue", () => {
     },
   };
 
-  it("renders message when component is created", () => {
-    const wrapper = shallowMount(Button, {
+  it("should emit onClick when button is clicked", () => {
+    const wrapper = shallowMount(BaseButton, {
       props: {
-        message: "",
-      },
-      global: i18n,
-    });
-    expect(wrapper.vm.$options.name).toMatch("Button");
-  });
-
-  it("emitting onClick when button is clicked", () => {
-    const wrapper = shallowMount(Button, {
-      props: {
-        message: "",
+        isDisabled: false,
+        isLoading: false,
       },
       global: i18n,
     });
@@ -29,14 +21,28 @@ describe("Button.vue", () => {
     expect(wrapper.emitted("onClick")).toBeTruthy();
   });
 
-  it("renders props.message when passed", () => {
-    const wrapper = shallowMount(Button, {
+  it("should not emit onClick when button is clicked", () => {
+    const wrapper = shallowMount(BaseButton, {
       props: {
-        message: "Test",
+        isDisabled: true,
+        isLoading: false,
       },
       global: i18n,
     });
-    expect(wrapper.props().message).toBe("Test");
-    expect(wrapper.find("button").html()).toContain("Test");
+
+    wrapper.find("button").trigger("click");
+    expect(wrapper.emitted("onClick")).toBeUndefined();
+  });
+
+  it("should show loader", () => {
+    const wrapper = shallowMount(BaseButton, {
+      props: {
+        isDisabled: false,
+        isLoading: true,
+      },
+      global: i18n,
+    });
+
+    expect(wrapper.findComponent(TheLoader).isVisible()).toBeTruthy();
   });
 });

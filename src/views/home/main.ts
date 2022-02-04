@@ -20,11 +20,11 @@ export default defineComponent({
       password: "",
       confirmPassword: "",
     });
-    const submitted = ref<ScreenState>(ScreenState.DEFAULT);
+    const state = ref<ScreenState>(ScreenState.DEFAULT);
     return {
       user,
       v$: useVuelidate(),
-      submitted,
+      state,
     };
   },
   methods: {
@@ -48,13 +48,13 @@ export default defineComponent({
       }
     },
     registerUser() {
-      this.submitted = ScreenState.LOADING;
+      this.state = ScreenState.LOADING;
       this.v$.$touch();
       if (this.v$.$invalid) {
         return false;
       }
       alert("Done!");
-      this.submitted = ScreenState.LOADED;
+      this.state = ScreenState.LOADED;
       return true;
     },
   },
