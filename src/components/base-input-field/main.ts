@@ -4,8 +4,8 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "BaseInputField",
   props: {
-    testid: {
-      required: true,
+    data_cy: {
+      required: false,
       type: String,
     },
     placeholder: {

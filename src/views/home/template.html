@@ -1,7 +1,7 @@
 <div class="home">
   <div class="input">
     <BaseInputField
-      testid="firstName"
+      data_cy="firstName"
       type="text"
       placeholder="First Name"
       name="firstName"
@@ -12,7 +12,7 @@
   </div>
   <div class="input">
     <BaseInputField
-      testid="lastName"
+      data_cy="lastName"
       type="text"
       placeholder="Last Name"
       name="lastName"
@@ -23,7 +23,7 @@
   </div>
   <div class="input">
     <BaseInputField
-      testid="email"
+      data_cy="email"
       type="email"
       placeholder="Email"
       name="email"
@@ -34,7 +34,7 @@
   </div>
   <div class="input">
     <BaseInputField
-      testid="password"
+      data_cy="password"
       type="password"
       placeholder="Password"
       name="password"
@@ -45,7 +45,7 @@
   </div>
   <div class="input">
     <BaseInputField
-      testid="confirmPassword"
+      data_cy="confirmPassword"
       type="password"
       placeholder="Confirm Password"
       name="confirmPassword"
@@ -54,5 +54,5 @@
       @changeValue="updateUser"
     />
   </div>
-  <BaseButton testid= "registerUser" @onClick="registerUser"> {{$t('button.register')}} </BaseButton>
+  <BaseButton data_cy= "register-user" @onClick="registerUser"> {{$t('button.register')}} </BaseButton>
 </div>

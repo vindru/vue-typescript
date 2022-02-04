@@ -1,11 +1,11 @@
 <div class="inputField">
   <input
-    :testid="testid"
+    :data_cy="data_cy"
     class="inputbox"
     :type="type"
     :placeholder="placeholder"
     :name="name"
     @input="$emit('changeValue', $event.target.value, name)"
   />
-  <span :testid="errorMessage" class="errorMessage" v-if="invalidInput">{{ errorMessage }}</span>
+  <span :data_cy="errorMessage" class="errorMessage" v-if="invalidInput">{{ errorMessage }}</span>
 </div>
