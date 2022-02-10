@@ -1,29 +1,29 @@
 name: CI
 on: push
 jobs:
-build:
-  name: Build
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-    - run: yarn install
-    - run: yarn build
+      - run: yarn install
+      - run: yarn build
 
-lint:
-  name: Lint
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-    - run: yarn install
-    - run: yarn lint
+      - run: yarn install
+      - run: yarn lint
 
-test:
-  name: test
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-    - run: yarn install
-    - run: yarn test:unit
+      - run: yarn install
+      - run: yarn test:unit
