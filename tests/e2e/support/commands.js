@@ -10,7 +10,13 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
+Cypress.Commands.add("register", (firstName, lastName, email, password) => {
+    cy.get('[data_cy="firstName"]').type(firstName)
+    cy.get('[data_cy="lastName"]').type(lastName)
+    cy.get('[data_cy="email"]').type(email)
+    cy.get('[data_cy="password"]').type(password)
+    cy.get('[data_cy="confirmPassword"]').type(password)
+})
 //
 //
 // -- This is a child command --
